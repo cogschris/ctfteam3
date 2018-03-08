@@ -109,15 +109,23 @@ endif;
       }
 
       function withdraw() {
-
+        if(amount() && is_numeric($_GET['amount']) && $_GET['amount'] > 0) {
+            $sqls = "Update ". TB_NAME . " SET balance = balance - " . $_GET['amount'] . "
+            WHERE username = '" . $_COOKIE["username"] . "';";
+            update($sqls);
+        }
       }
 
       function balance() {
-
+        //Amount not needed to retrieve balance
+        $sqls = "Select balance FROM ". TB_NAME . " WHERE username = '" . $_COOKIE["username"] . "';";
+        update($sqls);
       }
 
       function close() {
-
+        //Amount not needed to close an account
+        $sqls = "Delete FROM ". TB_NAME . "WHERE username = '" . $_COOKIE["username"] . "';";
+        update($sqls);
       }
       
       function goodlogin() {
