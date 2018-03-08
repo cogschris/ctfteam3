@@ -100,6 +100,7 @@ endif;
             WHERE username = '" . $_COOKIE["username"] . "';";
 
              update($sqls);
+             balance();
           //   ]
 
           }
@@ -113,6 +114,7 @@ endif;
             $sqls = "Update ". TB_NAME . " SET balance = balance - " . $_GET['amount'] . "
             WHERE username = '" . $_COOKIE["username"] . "';";
             update($sqls);
+            balance();
         }
       }
 
