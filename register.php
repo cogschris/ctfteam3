@@ -36,8 +36,8 @@ $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 
   if ($mysqli->connect_errno ) :
-            echo "Connection Error: ";
-            echo $mysqli->connect_error;
+            echo "Connection Error ";
+            //echo $mysqli->connect_error;
   else :
 
 
@@ -68,7 +68,7 @@ $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
       $results = $mysqli->query($sql);
   		if (!$results) :
-  			echo $mysqli->error;
+  			echo "Error!";
 
   		else :
         ?>
