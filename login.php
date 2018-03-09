@@ -24,8 +24,8 @@ $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 
   if ($mysqli->connect_errno ) :
-            echo "Connection Error: ";
-            echo $mysqli->connect_error;
+            echo "Connection Error ";
+            //echo $mysqli->connect_error;
   else :
     $username = mysqli_real_escape_string($mysqli, $_GET['user']);
     $password = mysqli_real_escape_string($mysqli, $_GET['pass']);
@@ -42,9 +42,9 @@ $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
       $results = $mysqli->query($sql);
   		if (!$results) :
-        echo $sql;
-        echo "<br>";
-  			echo $mysqli->error;
+        //echo $sql;
+        //echo "<br>";
+  			echo "error";
   		else :
         $row = $results->fetch_assoc();
 ?>
