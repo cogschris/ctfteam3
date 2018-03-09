@@ -135,7 +135,7 @@ endif;
              $row = $results->fetch_assoc();
 
             ?>
-              <h3>Balance is $<?php echo $row['balance']; ?> </h3>
+              <h3> balance=<?php echo $row['balance']; ?> </h3>
             <?php
           endif;
         endif;
