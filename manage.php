@@ -20,8 +20,8 @@ else :
 
 
     if ($mysqli->connect_errno ) :
-              echo "Connection Error: ";
-              echo $mysqli->connect_error;
+              echo "Connection Error ";
+              //echo $mysqli->connect_error;
     else :
 
 
@@ -123,13 +123,13 @@ endif;
         $sqls = "Select balance FROM ". TB_NAME . " WHERE username = '" . $_COOKIE["username"] . "';";
         $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if ($mysqli->connect_errno ) :
-                  echo "Connection Error: ";
-                  echo $mysqli->connect_error;
+                  echo "Connection Error ";
+                  //echo $mysqli->connect_error;
         else :
 
           $results = $mysqli->query($sqls);
           if (!$results) :
-              			echo $mysqli->error;
+              			echo "Error!";
 
           else :
              $row = $results->fetch_assoc();
@@ -171,13 +171,13 @@ endif;
 
         $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if ($mysqli->connect_errno ) :
-                  echo "Connection Error: ";
-                  echo $mysqli->connect_error;
+                  echo "Connection Error ";
+                  //echo $mysqli->connect_error;
         else :
 
           $results = $mysqli->query($sql_statment);
           if (!$results) :
-              			echo $mysqli->error;
+              			echo "Error";
 
           else :
 
