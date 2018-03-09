@@ -121,7 +121,24 @@ endif;
       function balance() {
         //Amount not needed to retrieve balance
         $sqls = "Select balance FROM ". TB_NAME . " WHERE username = '" . $_COOKIE["username"] . "';";
-        update($sqls);
+        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        if ($mysqli->connect_errno ) :
+                  echo "Connection Error: ";
+                  echo $mysqli->connect_error;
+        else :
+
+          $results = $mysqli->query($sqls);
+          if (!$results) :
+              			echo $mysqli->error;
+
+          else :
+             $row = $results->fetch_assoc();
+
+            ?>
+              <h3>Balance is $<?php echo $row['balance']; ?> </h3>
+            <?php
+          endif;
+        endif;
       }
 
       function close() {
